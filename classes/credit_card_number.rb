@@ -8,6 +8,7 @@ class CreditCardNumber
     @number = number.strip_whitespace
   end
 
+  # Attempts to classify the card type.
   def card_type
     return 'AMEX' if is_amex_card?
     return 'Discover' if is_discover_card?
@@ -32,6 +33,8 @@ class CreditCardNumber
     /^4(\d{12}|\d{15})$/ =~ @number
   end
 
+  # Performs the standard Luhn Algorythm check.
+  # http://en.wikipedia.org/wiki/Luhn_algorithm
   def luhn_algorythm_check
 
     number_copy = @number.clone
