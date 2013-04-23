@@ -17,27 +17,19 @@ class CreditCardNumber
   end
 
   def is_amex_card?
-    return false if @number.length != 15
-    prefix = @number[0..1]
-    ( prefix == '34' || prefix == '37' )
+    /^(34|37)\d{13}$/ =~ @number
   end
 
   def is_discover_card?
-    return false if @number.length != 16
-    prefix = @number[0..3]
-    prefix == '6011'
+    /^6011\d{12}$/ =~ @number
   end
 
   def is_mastercard_card?
-    return false if @number.length != 16
-    prefix = @number[0..1]
-    ( prefix == '51' || prefix == '52' || prefix == '53' || prefix == '54' || prefix == '55' )
+    /^(51|52|53|54|55)\d{14}$/ =~ @number
   end
 
   def is_visa_card?
-    return false if ( @number.length != 13 && @number.length != 16 )
-    prefix = @number[0]
-    prefix == '4'
+    /^4(\d{12}|\d{15})$/ =~ @number
   end
 
   def valid?
