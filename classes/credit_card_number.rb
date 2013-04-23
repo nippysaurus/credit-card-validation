@@ -32,7 +32,7 @@ class CreditCardNumber
     /^4(\d{12}|\d{15})$/ =~ @number
   end
 
-  def valid?
+  def luhn_algorythm_check
 
     number_copy = @number.clone
     number_copy.prepend('0') if number_copy.length.odd?
@@ -54,6 +54,8 @@ class CreditCardNumber
     sum % 10 == 0
 
   end
+
+  alias :valid? :luhn_algorythm_check
 
   def to_s
     "#{card_type}: #{@number}".ljust(30) + "(#{ valid? ? 'valid' : 'invalid' })"
