@@ -1,19 +1,19 @@
-The 'Credit Card Validator' identifies and validates credit card numbers.
+# Credit Card Validator
 
-DATA:
+The credit card validator is a commandline application which identifies and validates credit card numbers.
 
-Sample credit card data can be found in a 'data' file. The format expected is one credit card number per line.
+## Data
 
-USAGE:
+Sample credit card data can be found in a 'data' file. The format is one credit card number per line.
 
-You can either pass the data in via STDIN
+## Usage
 
-./ccv.rb < data
+You can either pass the data in via STDIN or pass supply the data files as a parameters. Either of the following are acceptable:
 
-or pass supply the data file as a parameter
+    ./ccv.rb < data
 
-./ccs.rb data
+    ./ccs.rb data
 
-TESTING
+## Tests
 
-TODO
+Tests are written in rspec. Run *rspec* in the root directory to run tests.
